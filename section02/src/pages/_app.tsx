@@ -25,7 +25,9 @@ export default function App({ Component, pageProps }: AppProps) {
         {/* Link 컴포넌트를 사용하여 CSR 방식을 사용하여 빠르게 페이지 이동 가능 */}
         <Link href={"/"}>index</Link>
         &nbsp;
-        <Link href={"/search"}>search</Link>
+        <Link href={"/search"} prefetch={false}>
+          search
+        </Link>
         &nbsp;
         <Link href={"/book/1"}>book/1</Link>
         <div>
