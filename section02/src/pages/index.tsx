@@ -1,6 +1,8 @@
 // CSS Module
 // 유니크한 값으로 변경되어서 다른 className과 겹치는 것을 방지
+import { ReactNode } from "react";
 import style from "./index.module.css";
+import SearchableLayout from "@/components/searchable-layout";
 
 export default function Home() {
   return (
@@ -10,3 +12,7 @@ export default function Home() {
     </>
   );
 }
+
+Home.getLayout = (page: ReactNode) => {
+  return <SearchableLayout>{page}</SearchableLayout>;
+};
