@@ -8,7 +8,7 @@ async function AllBooks() {
     { cache: "no-store" },
   );
   if (!response.ok) {
-    return <div>오류가 발생했습니다...</div>;
+    return <div>오류가 발생했습니다..!</div>;
   }
   const allBooks: BookData[] = await response.json();
 
@@ -27,7 +27,7 @@ async function RecoBooks() {
     { next: { revalidate: 3 } },
   );
   if (!response.ok) {
-    return <div>오류가 발생했습니다...</div>;
+    return <div>오류가 발생했습니다..!</div>;
   }
   const recoBooks: BookData[] = await response.json();
 

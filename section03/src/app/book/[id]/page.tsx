@@ -9,7 +9,7 @@ export default async function Page({
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/${params.id}`,
   );
   if (!response.ok) {
-    return <div>오류가 발생했습니다...</div>;
+    return <div>오류가 발생했습니다..!</div>;
   }
 
   const book = await response.json();
