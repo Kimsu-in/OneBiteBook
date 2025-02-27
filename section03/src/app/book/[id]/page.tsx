@@ -1,4 +1,12 @@
+import { notFound } from "next/navigation";
 import style from "./page.module.css";
+
+// generateStaticParams에서 설정하지 않은 페이지는 모두 404
+// export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return [{ id: "1" }, { id: "2" }, { id: "3" }]; // 문자열로만 넣어야 함
+}
 
 export default async function Page({
   params,
@@ -10,6 +18,9 @@ export default async function Page({
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/${id}`,
   );
   if (!response.ok) {
+    if (response.status === 404) {
+      notFound();
+    }
     return <div>오류가 발생했습니다..!</div>;
   }
 
